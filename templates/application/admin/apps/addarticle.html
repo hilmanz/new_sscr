@@ -1,0 +1,246 @@
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+  {literal}
+<script>
+ $(function() {
+		function convertDate(inputFormat) {
+		  function pad(s) { return (s < 10) ? '0' + s : s; }
+		  var d = new Date(inputFormat);
+		  return [pad(d.getMonth()), pad(d.getDate()+1), d.getFullYear()].join('/');
+		}
+		
+		$('#datepickers1').change(function()
+									{
+										
+										var today = new Date();     
+										var tglintv =  convertDate($(this).val());   
+										var miliday = 24 * 60 * 60 * 1000;
+										var selisih = (tglintv - today) / miliday;
+										 console.log(selisih);
+										 $('.dateintrv_no').html('');
+										if(selisih<=2)
+										{
+										console.log('ss');
+											$('.dateintrv_no').html('The date you selected is less than 2 days from today.');
+										}
+									});	
+		$('#timepicker1').timepicker();
+	});
+	  $(function() {
+	  $('#datepicker2').datepicker();
+		$('#timepicker2').timepicker();
+	});
+{/literal}
+</script>
+<script>
+{literal}
+ // This example adds a search box to a map, using the Google Place Autocomplete
+// feature. People can enter geographical searches. The search box will return a
+// pick list containing a mix of places and predicted search terms.
+
+function initialize() {
+
+  var markers = [];
+ var mapCanvas = document.getElementById('map-canvas');
+	var mapOptions = {
+	  center: new google.maps.LatLng(-2.548926, 118.0148634),
+	  zoom: 5,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	}
+	var map = new google.maps.Map(mapCanvas, mapOptions);
+
+  // Create the search box and link it to the UI element.
+  var input = /** @type {HTMLInputElement} */(
+      document.getElementById('alamat'));
+ // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+  var searchBox = new google.maps.places.SearchBox(
+    /** @type {HTMLInputElement} */(input));
+
+  // [START region_getplaces]
+  // Listen for the event fired when the user selects an item from the
+  // pick list. Retrieve the matching places for that item.
+  google.maps.event.addListener(searchBox, 'places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+    for (var i = 0, marker; marker = markers[i]; i++) {
+      marker.setMap(null);
+    }
+
+    // For each place, get the icon, place name, and location.
+    markers = [];
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0, place; place = places[i]; i++) {
+      var image = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+      // Create a marker for each place.
+      var marker = new google.maps.Marker({
+        map: map,
+		title: place.name,
+        position: place.geometry.location,
+		 draggable: true
+      });
+	console.log(place.geometry.location.A);
+	$('.lat').val(place.geometry.location.A);
+	$('.lang').val(place.geometry.location.F);
+      markers.push(marker);
+
+      bounds.extend(place.geometry.location);
+	  
+	  
+	  
+	  google.maps.event.addListener(marker, 'dragend', function(a) {
+			console.log(a);
+			$('.lat').val(a.latLng.A);
+			$('.lang').val(a.latLng.F);
+			// bingo!
+			// a.latLng contains the co-ordinates where the marker was dropped
+		});
+		google.maps.event.addListener(marker, 'click', function(a) {
+			console.log(a);
+				$('.lat').val(a.latLng.A);
+			$('.lang').val(a.latLng.F);
+			// bingo!
+			// a.latLng contains the co-ordinates where the marker was dropped
+		});
+    }
+
+    map.fitBounds(bounds);
+  });
+  // [END region_getplaces]
+
+  // Bias the SearchBox results towards places that are within the bounds of the
+  // current map's viewport.
+  google.maps.event.addListener(map, 'bounds_changed', function() {
+    var bounds = map.getBounds();
+    searchBox.setBounds(bounds);
+  });
+  
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+$(function() {
+    $( "#datepickers1" ).datepicker({
+	dateFormat:"dd-mm-yy",
+	minDate: "+3d",
+     // defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#datepickers2" ).datepicker( "option", "minDate", selectedDate );
+
+		
+      }
+    });
+    $( "#datepickers2" ).datepicker({
+	dateFormat:"dd-mm-yy",
+     // defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) { 
+        $( "#datepickers1" ).datepicker( "option", "maxDate", selectedDate );
+
+      }
+    });
+	
+
+});
+    </script>
+ {/literal}
+</script>
+<div class="page_section" id="project-page">
+    <div id="container">
+        <div class="titlebox">
+            <h2 class="fl"><span class="icon-event">&nbsp;</span>Add Article</h2>            
+        </div><!-- end .titlebox -->
+        <div class="content">
+            <form id="forms" class="forms" method="post" action="{$basedomain}articlemanagement/addarticle" enctype="multipart/form-data">			
+				<div id="new-project" class="boxcontent">
+					<section class="step1">	
+						<div class="row">
+							<label for="name">Title<br></label>
+							<input id="title" name="title" type="text" class="title" ><br>
+							<label class="title_erorr error_red"  style="color: red;"></label>
+						</div><!-- end .row -->
+						
+						<div class="row">
+							<label for="name">Content<br></label>
+							<textarea id="content" name="content"></textarea><br>
+							<label class="content_erorr error_red"  style="color: red;"></label>
+						</div><!-- end .row -->
+						
+						<div class="row">
+							<label for="name">upload gambar<br></label>
+							<input id="img" name="img" type="file" class="img" ><br>
+							<label class="img_erorr error_red"  style="color: red;"></label>
+						</div><!-- end .row -->
+					  					
+						<!--div class="row">
+							<label>Kategori Event <br></label>
+							<select name="catevent" class="catevent selectpicker">					   
+								<option value="">Pilih Kategori</option>						 
+								<option value="4">Supper Soccer</option>						 
+													  
+							</select><br>						
+							<label class="catevent_erorr error_red" style="color: red;"></label>						
+						</div><!-- end .row -->
+						
+						
+						
+						<div class="row" >						
+							<input type="submit" value="Simpan" name="submit" class="fr button3 submitevent"  />
+							<a href="{$basedomain}eventmanagement" class="button4 fr text-center">Batal</a>
+						</div><!-- end .row -->
+					</section>
+				</div><!-- end #wizard -->			
+            </form>
+        </div><!-- end .content -->
+    </div><!-- end #container -->
+</div><!-- end #home -->
+<script>
+{literal}
+	$(document).on('click','.submitevent',function(){
+		$('.title_erorr').html('');
+		$('.content_erorr').html('');
+		$('.img_erorr').html('');
+		
+		
+		var valid='';
+		if($('.title').val()=='')
+		{
+			$('.title_erorr').html('kolom ini harus di isi');
+			valid='ada';
+		}
+		if($('.img').val()=='')
+		{
+			$('.img_erorr').html('kolom ini harus di isi');
+			valid='ada';
+		}
+		if (document.getElementById('content').value == '')
+		{
+			$('.content_erorr').html('kolom ini harus di isi');			
+			valid='ada';
+		}
+		
+		
+		if(valid)
+		{
+			return false;
+		}
+		else
+		{
+			$('.fromevent').trigger('submit');
+		}
+	})
+{/literal}
+</script>

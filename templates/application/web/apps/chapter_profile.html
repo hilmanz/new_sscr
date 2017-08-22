@@ -1,0 +1,123 @@
+
+            <div id="content" role="main">
+                <div class="centered-red-box">
+                    <section class="section swatch-white-black">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <figure>
+                                    <a href="{$basedomain}chapter/home"><img src="{$basedomain}assets/images/supersoccer-logo.png" class="sscr-wfm-logo"></a>
+                                </figure>
+                            </header>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="profile-left-col">
+                                        <div class="kota">KOTA</div>
+                                        <div class="nama-kota">{$userdata.citinya}</div>
+                                        <div class="head-chapter">{$userdata.name_chapter}</div>
+                                        <div class="nama-chapter">{$userdata.name}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="profile-col">
+                                        <h2 class="profile-head">{$userdata.name}</h2>
+                                        <div class="profile-body">
+											{if $userdata.img_avatar}
+													<img src="{$basedomain}public_assets/profile/{$userdata.img_avatar}">
+												{else}
+													<img src="{$basedomain}public_assets/profile/c6f6d06ded7e7c3a98679f39398e604947.jpg">
+												{/if}                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="profile-right-col">
+                                        <div class="profile-point">POIN</div>
+                                        <div class="profile-point-point">{$userdata.point}</div>
+                                        <p>Social Media</p>
+
+
+                                        <div class="member-socmed">
+                                            <i class="fa fa-facebook-square"></i>
+                                            <p>{$userdata.facebook}</p>
+                                        </div>
+                                        <div class="member-socmed">
+                                            <i class="fa fa-twitter-square"></i>
+                                            <p>{$userdata.twitter}</p>
+                                        </div>
+                                        <div class="member-socmed">
+                                            <i class="fa fa-edit" style="color:#ffffff !important;"></i>
+                                            <a href="{$basedomain}chapter/editchapter/{$userdata.id}/{$userdata.name_chapter}" style="color:#fff !important">Edit Profile</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div><!-- /.row -->
+                            <section class="section profile-member-row">
+                                <div class="container">
+                                    <header class="section-header padding-top">
+                                        <h1 class="headline super hairline">MEMBER</h1>
+                                    </header>
+                                    <div class="row">
+                                        <div class="col-md-4 col-md-offset-4">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="box-rect box-medium">
+                                                        <div class="box-dummy"></div>
+                                                        <span class="box-inner">
+                                                            <img alt="" class="img-circle" src="{$basedomain}assets/images/design/custom-icons/ico-profile-lihat-member.png">
+                                                        </span>
+                                                    </div>
+                                                    <h4 class="text-center margin-bottom">
+                                                        <a href="{$basedomain}chapter/memberlist">LIHAT MEMBER</a>
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="box-rect box-medium">
+                                                        <div class="box-dummy"></div>
+                                                        <span class="box-inner">
+                                                            <img alt="" class="img-circle" src="{$basedomain}assets/images/design/custom-icons/ico-profile-add-member.png">
+                                                        </span>
+                                                    </div>
+                                                    <h4 class="text-center margin-bottom">
+                                                        <a href="{$basedomain}chapter/membertambah">TAMBAH MEMBER</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <header class="section-header" style="margin-top:50px">
+                                        <h1 class="headline super hairline">EVENT</h1>
+                                    </header>
+                                    <div class="row">
+                                        <div class="col-md-4 col-md-offset-4">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="box-rect box-medium">
+                                                        <div class="box-dummy"></div>
+                                                        <span class="box-inner">
+                                                            <img alt="" class="img-circle" src="{$basedomain}assets/images/design/custom-icons/ico-profile-lihat-event.png">
+                                                        </span>
+                                                    </div>
+                                                    <h4 class="text-center margin-bottom">
+                                                        <a href="{$basedomain}chapter/event">LIHAT EVENT</a>
+                                                    </h4>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="box-rect box-medium">
+                                                        <div class="box-dummy"></div>
+                                                        <span class="box-inner">
+                                                            <img alt="" class="img-circle" src="{$basedomain}assets/images/design/custom-icons/ico-profile-add-event.png">
+                                                        </span>
+                                                    </div>
+                                                    <h4 class="text-center margin-bottom">
+                                                        <a href="{$basedomain}chapter/eventtambah">TAMBAH EVENT</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div><!-- /.container -->
+                    </section>
+                </div><!-- /.centered-red-box -->

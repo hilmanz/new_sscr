@@ -1,0 +1,145 @@
+
+            <div id="content" role="main">
+                <div class="centered-red-box">
+                    <section class="section" style="padding-top:50px">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <figure>
+                                    <img src="{$basedomain}assets/images/supersoccer-logo.png">
+                                </figure>
+                            </header>
+                            <header class="section-header">
+                                <h1 class="headline super hairline">EVENT</h1>
+                            </header>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="big">EVENT YANG AKAN DATANG</h3>
+                                    <div class="well row">
+										{if $dataevent}
+											{section name=i loop=$dataevent}
+												<div class="col-md-8">
+													<div class="grid-post swatch-black-white">
+														<article class="post post-showinfo">
+															<div class="post-head text-left">
+																<h3 class="post-title">
+																	<a href="#">
+																		{$dataevent[i].name}
+																	</a>
+																</h3>
+																<small class="post-date text-normal">
+																	{$dataevent[i].time_start|date_format:"%d/%m/%y"} - {$dataevent[i].time_end|date_format:"%d/%m/%y"}<br>
+																	{$dataevent[i].jam_awal} - {$dataevent[i].jam_akhir}
+																</small>
+															</div>
+															<div class="post-body">
+																<p>
+																	{$dataevent[i].alamat}
+																</p>
+															</div>
+														</article>
+													</div>
+												</div>
+												
+												<div class="col-md-2">
+													<div class="v-block">
+														<div class="v-centered">
+															<h2 class="bigger color-red"><span class="glyphicon glyphicon-calendar"></span></h2>
+															<a id="detail" class="button" href="eventdetail/{$dataevent[i].id}">LIHAT EVENT</a>
+														</div>
+													</div>
+												</div>
+												<!--div class="col-md-2">
+													<div class="v-block">
+														<div class="v-centered">
+															<h2 class="bigger color-red"><span class="glyphicon glyphicon-trash"></span></h2>
+															<p class="small">HAPUS EVENT</p>
+														</div>
+													</div>
+												</div-->
+											{/section}
+										{else}
+											 <div class="col-md-8">
+												<div class="grid-post swatch-black-white">
+													<article class="post post-showinfo">
+														
+															<h3>
+																<a href="#">
+																   Tidak ada event
+																</a>
+															</h3>
+														   
+													</article>
+												</div>
+											</div>
+										{/if}
+									</div>
+                                </div>
+                            </div>
+                            <div class="row padding-top">
+                                <div class="col-md-12">
+                                    <h3 class="big">EVENT YANG TELAH LEWAT</h3>
+                                    {if $dataeventold}
+										{section name=j loop=$dataeventold}
+											<div class="well row">
+												<div class="col-md-10">
+													<div class="grid-post swatch-black-white">
+														<article class="post post-showinfo">
+															<div class="post-head text-left">
+																<h3 class="post-title">
+																	<a href="#">
+																		{$dataeventold[j].name}
+																	</a>
+																</h3>
+																<small class="post-date text-normal">
+																	{$dataeventold[j].time_start|date_format:"%d/%m/%Y"} - {$dataeventold[j].time_end|date_format:"%d/%m/%Y"}<br>
+																	{$dataeventold[j].jam_awal} - {$dataeventold[j].jam_akhir}
+																</small>
+															</div>
+															<div class="post-body">
+																<p>
+																	{$dataeventold[j].alamat}
+																</p>
+																<h4 class="bigger color-red">{$dataeventold[j].point} POINT</h4>
+															</div>
+
+														</article>
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="v-block">
+														<div class="v-centered">
+															<h2 class="bigger color-red"><span class="glyphicon glyphicon-calendar"></span></h2>
+															<p class="small"><a id="detail" class="button" href="eventdetail/{$dataeventold[j].id}">LIHAT EVENT</a></p>
+														</div>
+													</div>
+												</div>
+											</div>
+										{/section}
+									{else}
+										<div class="row">
+											<div class="col-md-12">
+												<div class="well row">
+													<div class="grid-post swatch-black-white">
+														<article class="post post-showinfo">
+															<div class="post-head text-left">
+																<h3 class="post-title">
+																<a href="#">
+																   Tidak ada event
+																</a>
+																</h3>
+															</div>
+
+														</article>
+													</div>
+												</div>
+											</div>
+										</div>
+									{/if}
+                                </div>
+                            </div>
+                            
+                            
+                    </section>
+                </div><!-- /.centered-red-box -->
+
+              

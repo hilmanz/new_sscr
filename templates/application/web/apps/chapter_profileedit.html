@@ -1,0 +1,124 @@
+<div id="content" role="main">
+	<div class="centered-red-box">
+		<section class="section swatch-white-black" style="padding-top:50px">
+			<div class="container">
+				<header class="section-header no-border">
+					<figure>
+						<img src="{$basedomain}assets/images/supersoccer-logo.png">
+					</figure>
+				</header>
+
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="profile-col">
+							<h2 class="profile-head">EDIT CHAPTER</h2>
+							<div class="profile-body">
+								<div class="profile-big-head padding-top">
+									<center><ul id="files" ><img src="{$basedomain}public_assets/profile/{$profile.img_avatar}" id="photo"></ul></center>
+								</div>
+								<p class="padding-top small" id="validphoto">Maksimal file 2 MB (.jpg, .jpeg, .png)<br>Dimension: WxH 350 x 350 pixel </p>
+								
+								<form id="" class="contact-form padding-top">
+									<div class="form-group text-center">
+										<img src="{$basedomain}assets/images/btn_unggah.png" id="upload">	
+										<span id="status" ></span>
+										
+									</div>
+								</form>
+								<!-- <button class="btn_unggah" type="submit">UNGGAH</button> -->
+							</div>
+						</div><!-- /.profile-col -->
+						<form id="frmeditmember" class="contact-form padding-top frmeditchapter" method="post" action="{$basedomain}chapter/proseseditchapter" enctype="application/x-www-form-urlencoded">
+							<div class="form-group form-icon-group">
+								<input class="form-control" id="" name="name_chapter" placeholder="Nama Chapter *" type="text" value="{$profile.name_chapter}" required/>
+								<i class="fa fa-users"></i>
+							</div>
+							<div class="form-group form-icon-group">
+								<input class="form-control" id="" name="email" placeholder="Email Chapter *" type="email" value="{$profile.email}" required>
+								<i class="fa fa-envelope"></i>
+							</div>
+							<div class="form-group form-icon-group">
+								<input class="form-control" id="" name="ktp_sim" placeholder="No KTP *" type="text" value="{$profile.ktp_sim}" required>
+								<i class="fa fa-credit-card"></i>
+							</div>
+                            <div class="form-group form-icon-group">
+                                <input class="form-control" id="" name="no_hp" placeholder="No HP *" value="{$profile.no_hp}" type="text" required>
+                                <i class="fa fa-mobile-phone"></i>
+                            </div>
+							<div class="form-group form-icon-group">
+								<span class="infoUrl">https://www.facebook.com/</span>
+								<input class="form-control" id="" name="facebook" placeholder="www.facebook.com/" type="text" value="{$profile.facebook}" required style="padding-left:200px">
+								<i class="fa fa-facebook"></i>
+							</div>
+							<div class="form-group form-icon-group">
+								<span class="infoUrl">https://www.twitter.com/</span>
+								<input class="form-control" id="" name="twitter" placeholder="www.twitter.com/" type="text" value="{$profile.twitter}" required style="padding-left:187px">
+								<i class="fa fa-twitter"></i>
+							</div>
+							<div class="form-group form-icon-group">
+								<input class="form-control" id="" name="password" placeholder="Password *" type="password" value="{$password}" required>
+								<i class="fa fa-lock"></i>
+							</div>
+							<div class="form-group form-icon-group">
+								<input class="form-control" id="" name="repass" placeholder="Konfirmasi Password *" type="password" value="{$password}" required>
+								<i class="fa fa-lock"></i>
+							</div>
+
+							<div class="form-group text-center">
+								<input type="hidden" name="img_avatar" id="name_img"></input>
+								<input type="hidden" name="submit" value="1"></input>
+								<!--<input class="btn btn-primary btn-icon btn-icon-right submitevent" type="submit" value="simpan">-->
+								<input type="image" src="{$basedomain}assets/images/btn_simpan.png" class="submitevent"></input>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div><!-- /.centered-red-box -->
+
+<script src="{$basedomain}assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+		{literal}
+		
+			$(document).on('click','.submitevent',function(){
+				
+			$('#frmeditmember').trigger('submit');
+			});
+		
+
+	$(function(){
+		var btnUpload=$('#upload');
+		var status=$('#status');
+		new AjaxUpload(btnUpload, {
+			action: basedomain+'upload-file.php',
+			name: 'uploadfile',
+			onSubmit: function(file, ext){
+				
+				 if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
+                    // extension is not allowed 
+					status.text('Only JPG, PNG or GIF files are allowed');
+					return false;
+				}			
+				status.text('Uploading...');
+			},
+			onComplete: function(file, response){
+				//On completion clear the status
+				status.text('');
+				//Add uploaded file to list
+				if(response==="success"){					
+					$('#files').html('');
+					$('#photo').hide();
+					$('#validphoto').hide();
+					$('#name_img').val(file);
+					$('<li></li>').appendTo('#files').html('<img src="'+basedomain+'/public_assets/profile/'+file+'" alt="" /><br />').addClass('success');
+				} else{		
+					$('#photo').show();
+					$('<li></li>').appendTo('#files').text(file).addClass('error');
+				}
+			}
+		});
+		
+	});
+	{/literal}
+</script>

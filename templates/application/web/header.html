@@ -1,0 +1,83 @@
+{if $pages=="login" || $pages=="puzzle" }
+	{if $act=='community'}
+		<div class="slideout-menu">
+			<h3><a href="#" class="slideout-menu-toggle">&times;</a></h3>
+			<ul>
+				<li><a href="{$basedomain}chapter/about">About</a></li>	
+				<li><a href="{$basedomain}chapter/leaderboard">Leaderboard</a></li>
+				<li><a href="{$basedomain}chapter/berita">Berita &amp; Pengumuman</a></li>		
+			</ul>
+		</div>
+
+		<!--/.slideout-menu-->   
+		<header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+			<div class="container">
+				<div class="menu-visible text-right">			
+					<a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+				</div>
+			</div>
+		</header>
+	{else if $act=='campus'}
+		<div class="slideout-menu">
+        	<h3><a href="#" class="slideout-menu-toggle">&times;</a></h3>
+        	<ul>
+        		<li><a href="{$basedomain}campus/about">About</a></li>        		
+        		<li><a href="{$basedomain}campus/leaderboard">Leaderboard</a></li>
+        		<li><a href="{$basedomain}campus/berita">Berita &amp; Pengumuman</a></li>               
+        	</ul>
+        </div>
+        <!--/.slideout-menu-->
+		<header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+			<div class="container">
+				<div class="menu-visible text-right">			
+					<a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+				</div>
+			</div>
+		</header>
+	{/if}
+{/if}
+
+{if $pages=="chapter"}
+<!-- header chapter -->
+<div class="slideout-menu">
+	<h3><a href="#" class="slideout-menu-toggle">&times;</a></h3>
+	<ul>
+		<li><a href="{$basedomain}chapter/about">About</a></li>	
+		<li><a href="{$basedomain}chapter/leaderboard">Leaderboard</a></li>
+		<li><a href="{$basedomain}chapter/berita">Berita &amp; Pengumuman</a></li>			
+        <li><a href="{$basedomain}login/community">Login</a></li>
+	</ul>
+</div>
+        <!--/.slideout-menu--> 
+        <!--/.slideout-menu-->   
+<header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+	<div class="container">
+		<div class="menu-visible text-right">			
+			<a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+		</div>
+	</div>
+</header>		
+{/if}
+
+
+{if $pages=="campus"}
+<!-- master campus -->
+<div class="slideout-menu">
+	<h3><a href="#" class="slideout-menu-toggle">&times;</a></h3>
+	<ul>
+		<li><a href="{$basedomain}campus/about">About</a></li>
+		<li><a href="{$basedomain}campus/leaderboard">Leaderboard</a></li>
+		<li><a href="{$basedomain}campus/berita">Berita &amp; Pengumuman</a></li>
+		<li><a href="{$basedomain}login/campus">Login</a></li>
+	</ul>
+</div>
+
+<!--/.slideout-menu-->
+<header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+	<div class="container">
+		<div class="menu-visible text-right">			
+			<a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+		</div>
+	</div>
+</header>	
+{/if}

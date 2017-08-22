@@ -1,0 +1,34 @@
+<div class="slideout-menu">
+	<h3><a href="#" class="slideout-menu-toggle">&times;</a></h3>
+	<ul>
+		<li><a href="{$basedomain}chapter/about">About</a></li>
+		<li><a href="{$basedomain}chapter/memberlist">Member</a></li>
+		<li><a href="{$basedomain}chapter/event">Event </a></li>
+		<li><a href="{$basedomain}chapter/leaderboard">Leaderboard</a></li>
+		<li><a href="{$basedomain}chapter/berita">Berita &amp; Pengumuman</a></li>
+		<li><a href="#">Hadiah</a></li>
+		<li><a href="{$basedomain}chapter/profile">Profile</a></li>
+	</ul>
+</div>
+        <!--/.slideout-menu-->   
+<header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+	<div class="container">
+		<div class="menu-visible text-right">
+			{if $userdata.img_avatar}
+                <div class="box-round box-small">
+                    <div class="box-dummy"></div>
+                    <span class="box-inner">
+                        <img alt="" class="img-circle" src="{$basedomain}public_assets/profile/{$userdata.img_avatar}">
+                    </span>
+                </div>
+			{else}
+				<img src="{$basedomain}public_assets/profile/ico-user-top.png" width="35px">
+			{/if}
+			<div class="member-name-top"><a href="chapter_profile.html">{$userdata.name}</a></div>
+			<div class="member-point-top">{$userdata.point}</div>
+			<div>|</div>
+            <div class="member-point-top"><a href="{$basedomain}logout.php">LOG OUT</a></div>
+			<a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+		</div>
+	</div>
+</header>

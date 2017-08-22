@@ -1,0 +1,40 @@
+.paging{
+	clear:both;
+	padding: 5px 0;
+	text-align:center;
+}
+.paging a{
+	display: inline-block;
+	background:#e81517;
+	border-radius:1px;
+	width:30px; height:30px;
+	line-height:30px;
+	margin:0 2px;
+	color:#000;
+	vertical-align:top;
+	font-size:10px;
+	font-weight:bold;
+}
+.paging a span:before{
+	display:inline-block;
+	width:100%;
+	text-align:center;
+}
+.paging a.current {
+	background:#ffeeb8;
+}
+.paging a:hover{
+	background:#fff;
+}
+.pg-normal {
+	color: white;
+	font-weight: normal;
+	text-decoration: none;    
+	cursor: pointer;    
+}
+.pg-selected {
+	color: white;
+	font-weight: bold;        
+	text-decoration: underline;
+	cursor: pointer;
+}

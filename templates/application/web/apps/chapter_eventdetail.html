@@ -1,0 +1,54 @@
+<div id="content" role="main">
+	<div class="centered-red-box">
+		<section class="section">
+			<div class="container">
+				<header class="section-header no-border">
+					<figure>
+						<img src="{$basedomain}assets/images/supersoccer-logo.png" class="sscr-wfm-logo">
+					</figure>
+				</header>
+				<header class="section-header">
+					<h1 class="headline super hairline">DETAIL<br>EVENT</h1>
+				</header>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="well">
+							<div class="grid-post swatch-black-white">
+								<article class="post post-showinfo">
+
+									<div class="post-head text-center">
+										<h3 class="post-title color-red">
+											{$dataevent.time_start} - {$dataevent.time_end}
+										</h3>
+										<small class="post-time">
+											Waktu {$dataevent.jam_awal} - {$dataevent.jam_akhir}
+										</small>
+										<small class="post-time">
+											{$dataevent.time_start}
+										</small>
+
+									</div>
+									<div class="post-body">
+										<h3 class="text-center color-red">
+											{$dataevent.name}<br>{$dataevent.name_type}
+										</h3>
+										<p class="text-center">
+											<center>{$dataevent.alamat}</center>
+										</p>
+									</div>
+									<div class="post-extras">
+										<div class="text-center">
+											<span class="post-tags">
+											<i class="fa fa-tags"></i>
+												<span class="color-red">{$dataevent.name_type}</span>
+											</span>
+										</div>
+									</div>
+								</article>
+							</div><!-- /.grid-post -->
+						</div><!-- /.well -->
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section>
+	</div><!-- /.centered-red-box -->

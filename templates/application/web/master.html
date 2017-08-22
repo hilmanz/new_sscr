@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html dir="ltr" lang="en-US" class="ie6"> <![endif]-->
+<!--[if IE 7]>    <html dir="ltr" lang="en-US" class="ie7"> <![endif]-->
+<!--[if IE 8]>    <html dir="ltr" lang="en-US" class="ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html dir="ltr" lang="en-US"> <!--<![endif]-->
+
+<head>
+{$meta}
+</head>
+{if $pages=='chapter' ||  $pages=='login'}
+ <!-- master chapter -->
+	{if $act=='about' || $act=='login' || $act=='home' || $act=='syarat' || $act=='carabermain' || $act=='forgot_password'}
+		<body class="chapter-league-home">	
+	{else}  
+		<body class="chapter-league-inner"> 	
+	{/if}
+{elseif $pages=='member'}
+<!-- master member -->
+	{if $act=='about' || $act=='login' || $act=='home' || $act=='syarat'}
+		<body class="chapter-league-home">
+	{elseif $act=='carabermain'}
+		<body class="member-league-inner">
+	{else}  
+		<body class="chapter-league-inner"> 	
+	{/if}
+{elseif $pages=='campus'}
+<!-- master campus -->
+	{if $act=='about'}
+		<body class="chapter-league-home">	
+	{else}
+	<body class="campus-league-home">	
+	{/if}
+{elseif $pages=='puzzle'}	
+	<body onload="init();">
+{else}
+	<body class="landing">
+{/if}
+		{$header}			
+		{$mainContent}   	
+		{$footer}	
+ <a class="go-top hex-alt" href="javascript:void(0)">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+        <script src="{$basedomain}assets/js/packages.min.js"></script>
+        <script src="{$basedomain}assets/js/theme.js"></script>	
+
+    </body>
+</html>

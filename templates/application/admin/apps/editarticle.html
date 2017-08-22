@@ -1,0 +1,140 @@
+{literal}
+<script>
+ $(function() {
+		$('#datepicker1').datepicker(); 
+		$('.datepicker').change(function()
+									{
+										
+										var today = new Date();     
+										var tglintv = new Date($(this).val());   
+										 var miliday = 24 * 60 * 60 * 1000;
+										 var selisih = (tglintv - today) / miliday;
+										 console.log($('.dateintrv_no'));
+										 $(this).parent().find('.dateintrv_no').html('');
+										if(selisih<=2)
+										{
+											$('.dateintrv_no').html('The date you selected is less than 2 days from today.');
+										}
+									});		
+		$('#timepicker1').timepicker();
+	});
+	  $(function() {
+	  $('#datepicker2').datepicker();
+		$('#timepicker2').timepicker();
+	});
+{/literal}
+</script>
+
+<div class="page_section" id="project-page">
+    <div id="container">
+        <div class="titlebox">
+            <h2 class="fl"><span class="icon-books">&nbsp;</span>Edit Article</h2>
+            
+        </div><!-- end .titlebox -->
+        <div class="content">
+
+            <form id="fromeditevent" class="forms" method="post" action="{$basedomain}articlemanagement/editarticle"  enctype="multipart/form-data">
+			{section name=i loop=$listnya}
+            <div id="new-project" class="boxcontent">
+                <section class="step1">	
+                    <div class="row">
+                        <label for="name">Title<br></label>
+                        <input id="title" name="title"  value="{$listnya[i].title}" type="text" class="required title" ><br>
+						<label class="msg_name title_erorr"  style="color: red;">{$name_no}</label>
+                    </div><!-- end .row -->
+					  <div class="row">
+                        <label for="eventdesc">Content<br></label>
+                        <textarea id="content" name="content">{$listnya[i].content}</textarea><br>
+						<label class="content_erorr" style="color: red;"></label>
+                    </div><!-- end .row -->
+					<div class="row">
+                        <label for="name">Upload Gambar <br></label>
+						<img src="{$basedomainpath}public_assets/news/{$listnya[i].img}" width="300px">
+                        <input id="img" name="img" type="file" class="required img"><br>
+						<label class="msg_name img_erorr"  style="color: red;">{$name_no}</label>
+                    </div><!-- end .row -->      
+                   
+                    <div class="row">
+					<input type="hidden" name="submit" value="1">
+					<input type="hidden" name="idnya" value="{$listnya[i].id}">
+                        <input type="submit" value="Simpan" name="submit123" class="fr button3 submitsave lanjut"  />&nbsp;
+						 <a href="{$basedomain}eventmanagement" class="button4 fr text-center">Batal</a>
+                        <small class="msg">{$status.msgee}</small>
+                        <small class="msg">{$status.msg}</small>
+                    </div><!-- end .row -->
+                </section>
+            </div><!-- end #wizard -->
+			
+			{/section}
+            </form>
+        </div><!-- end .content -->
+    </div><!-- end #container -->
+</div><!-- end #home -->
+
+<script>
+{literal}
+$(document).on('click','.lanjut',function(){
+	$('.title_erorr').html('');
+	$('.content_erorr').html('');
+	$('.img_erorr').html('');
+	
+		var valid='';
+		if($('.title').val()=='')
+		{
+			$('.title_erorr').html('kolom ini harus di isi');
+			valid='ada';
+		}
+		
+		if (document.getElementById('content').value == '')
+		{
+			$('.content_erorr').html('kolom ini harus di isi');
+			valid='ada';
+		}
+	
+	
+	if(valid)
+	{
+		return false;
+		
+	}
+	else
+	{
+		$('#fromregmember').trigger('submit');
+	}
+})
+$('.number').keyup(function () {  
+		if(this.value)
+		{
+			this.value = this.value.replace(/[^0-9]/g,''); 
+			
+		}
+	});
+$('.string').keyup(function () {  
+	if(this.value)
+	{
+		this.value = this.value.replace(/[^a-zA-Z'"]/g,''); 
+		
+	}
+});	
+{/literal}
+</script>
+
+<script>
+{literal}
+	$('.typeuser').click(function()
+	{
+			
+			console.log($(this).val());
+			if($(this).val()==9)
+			{
+				$(".checkboxmenu").prop("checked", true);
+				$(".checkboxmenu").attr("disabled", true);				
+			}
+			else {
+				$(".checkboxmenu").prop("checked", false);
+				$(".checkboxmenu").removeAttr("disabled"); 	
+				}
+	});
+	
+{/literal}
+</script>

@@ -1,0 +1,34 @@
+<html>
+	<head>
+	<title>Undangan Chapter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	</head>
+	<body bgcolor="#000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+   	<table id="Table_01" width="750" border="0" cellpadding="0" cellspacing="0">
+       	<tr>
+       	<td>
+        <img src="http://gte.supersoccer.co.id/assets/images/email-template-invi_01.jpg" width="750" height="276" alt=""></td>
+       	</tr>
+       	<tr>
+       	<td>
+       	<div style=" background:#730000; color:#fff; padding:40px 30px; font-family:sans-serif; line-height: 24px; text-align:justify;">
+
+	<p>Hi, <span style="color:#fdcb02;">Agham aji</span></p>
+	<p>Download dan install SUPERSOCCER FOOTBALL MANAGER di smartphone mu sekarang juga dan mulai kumpulkan poin + koin Community Race untuk menangkan soccer trip ke INGGRIS / ITALIA! Temukan beragam fitur baru di Supersoccer Football Manager dan rasakan pengalaman menjadi manager sepakbola sesungguhnya!</p>	
+	<br><p>Di Supersoccer Football Manager versi terbaru, kamu gak hanya harus mengatur strategi dan pilih pemain, tapi kamu juga harus membeli, memilih dan mengelola personel management klub kamu, finansial, sampai sponsorship dengan real-time! Untuk info lebih lanjut tentang fitur baru Supersoccer, kamu bisa klik link ini: <a href="http://fm.supersoccer.co.id/" style="color:#fdcb02;" target="_blank">FM SUPERSOCCER</a></p>
+    <br><p>Inilah saatnya kamu buktikan dan menjadi manager terbaik musim ini di Supersoccer Community Race!</p>
+	<br><p>Untuk download Supersoccer Football Manager versi terbaru, klik tombol di bawah ini:</p>
+		<a href="https://play.google.com/store/apps/details?id=air.com.arm_enterprises.supersoccer.england2014"style="display: inline-block;text-indent: -9999px; width:166px; height:60px;background: url(http://gte.supersoccer.co.id/assets/images/android_download.png) no-repeat; background-size:166px; margin-right: 20px;" target="_blank"></a>
+
+                <a href="https://itunes.apple.com/us/app/supersoccer-2014/id902290991?ls=1&mt=8"style="display: inline-block;text-indent: -9999px; width:166px; height:60px;background: url(http://gte.supersoccer.co.id/assets/images/appstore_download.png) no-repeat; background-size: 166px;" target="_blank"></a>
+
+       	</div>
+       	</td>
+       	</tr>
+       	<tr>
+       	<td>
+        <img src="http://gte.supersoccer.co.id/assets/images/email-template-invi_03.jpg" width="750" height="136" alt=""></td>
+       	</tr>
+   	</table>
+	</body>
+</html>

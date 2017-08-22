@@ -1,0 +1,116 @@
+            <div id="content" role="main">
+                <div class="centered-red-box">
+                    <section class="section swatch-white-black" style="padding-top:50px">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <figure>
+                                    <a href="member_home.html"><img src="{$basedomain}assets/images/supersoccer-logo.png"></a>
+                                </figure>
+                            </header>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="profile-left-col">
+                                        <div class="kota">STATUS</div>
+                                        <div class="nama-kota">{if $memberprofile.n_status==1}Verified{elseif $datamemberpoint.n_status==0}Unverified{else}Gagal{/if}</div>
+                                        <div class="head-chapter">TIPE LOGIN</div>
+                                        <div class="nama-chapter">FACEBOOK</div>
+                                        <div class="head-chapter">ALAMAT</div>
+                                        <div class="nama-chapter">{$memberprofile.alamat}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="profile-col">
+                                        <h2 class="profile-head">{$memberprofile.name}</h2>
+                                        <div class="profile-body">
+                                            <div class="profile-big-head padding-top">
+												{if $memberprofile.img_avatar}
+													<img src="{$basedomain}public_assets/profile/{$memberprofile.img_avatar}">
+												{else}
+													<img src="{$basedomain}public_assets/profile/c6f6d06ded7e7c3a98679f39398e604947.jpg">
+												{/if}
+                                            </div>
+                                            <div class="profile-big-head" style="margin-top:20px">
+                                                <div class="overlay" style="background-color:#ffeeb8 !important; color:#570d17;">
+                                                    <p>kode voucher</p>
+                                                    <h1 style="color:#570d17;">{$memberprofile.voucer}</h1>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="profile-right-col">
+                                        <div class="profile-point">POIN</div>
+                                        <div class="profile-point-point">{$userdata.point}</div>
+                                        <p>Social Media</p>
+
+
+                                        <div class="member-socmed">
+                                            <i class="fa fa-facebook-square"></i>
+                                            <p>{$memberprofile.fb_id}</p>
+                                        </div>
+                                        <div class="member-socmed">
+                                            <i class="fa fa-twitter-square"></i>
+                                            <p>@{$memberprofile.twiiter_id}</p>
+                                        </div>
+                                        <div class="member-socmed padding-top">
+                                            <i class="fa fa-edit" style="color:#ffffff !important;"></i>
+                                            <a href="{$basedomain}member/editmember/{$memberprofile.ids}/{$memberprofile.nama_chapter}" style="color:#fff !important">Edit Profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <section class="section profile-member-row">
+                                <div class="container">
+                                    <header class="section-header padding-top">
+                                        <h1 class="headline super hairline">EVENT</h1>
+                                    </header>									
+										{if $rs_chapter}
+											{section name=i loop=$rs_chapter}
+												<div class="row">
+													<div class="col-md-10 col-md-offset-1 text-center">
+														<h2 class="bigger headings-caps" style="color:#ffeeb8"><a href="member_eventdetail.html" style="color:#ffeeb8">{$rs_chapter[i].name}</a></h2>
+														<p class="text-center">{$rs_chapter[i].time_start|date_format:"%d %B %Y"} JAM {$rs_chapter[i].jam_awal_i} - SELESAI<br>
+															{$rs_chapter[i].alamat}</p>
+													</div>
+												</div>
+												<br/>
+											{/section}
+										{else}
+											<div class="row">
+												<div class="col-md-10 col-md-offset-1 text-center padding-top">
+													<h2 class="bigger headings-caps" style="color:#ffeeb8"><a href="#" style="color:#ffeeb8">Event tidak ditemukan</a></h2>
+													
+												</div>
+											</div>
+										{/if}
+                                    
+                                    <header class="section-header padding-top" style="margin-top:100px">
+                                        <h1 class="headline super hairline">TRIVIA</h1>
+                                    </header>
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1 text-center">
+                                            <h2 class="bigger headings-caps" style="color:#ffeeb8">Ayo ikut Trivia Quiz dan kumpulkan poinnya sekarang!</h2>
+                                            <p class="">UNJUK KEBOLEHAN PENGETAHUAN SEPUTAR DUNIA BOLAMU DI SINI.</p>
+                                            <div class="padding-top">
+                                                <a href="#"><img src="{$basedomain}assets/images/btn_ikuti_quiz.png"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <header class="section-header" style="margin-top:100px">
+                                        <h1 class="headline super hairline">GAMES</h1>
+                                    </header>
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-1 text-center">
+                                            <img src="{$basedomain}assets/images/tebak-skor.png">
+                                            <div class="padding-top">
+                                                <a href="#"><img src="{$basedomain}assets/images/btn_buktikan_skrg.png"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </div><!-- /.centered-red-box -->

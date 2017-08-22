@@ -1,0 +1,105 @@
+
+            <div id="content" role="main">
+                <div class="centered-red-box">
+                    <section class="section">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <figure>
+                                    <a href="chapter_home.html"><img src="{$basedomain}assets/images/supersoccer-logo.png" class="sscr-wfm-logo"></a>
+                                </figure>
+                            </header>
+                            <header class="section-header">
+                                <h1 class="headline super hairline">MEMBER</h1>
+                            </header>
+                            <form method="POST" action="">
+                                <div class="row">
+                                    <!-- KIRI -->
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4 ><span class="color-red">NAMA</span> | POINT</h4>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h4><a href="{$basedomain}chapter/membertambah"><img src="{$basedomain}assets/images/design/custom-icons/ico-add-member-white.png"></a> <a href="{$basedomain}chapter/membertambah">TAMBAH MEMBER</a></h4>
+                                            </div>
+                                        </div>
+                                    </div><!-- col-md-4 KIRI-->
+
+                                    <!-- TENGAH -->
+                                    <div class="col-md-4">
+                                        &nbsp;
+                                    </div><!-- col-md-4 TENGAH-->
+
+                                    <!-- KANAN-->
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input class="form-control" id="cari-nama-member"name="search" value="{$search}" placeholder="Cari Nama/Email" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">                                                    
+													<select class="form-control" name="status" class="status">
+														<option value=''>Please Select</option>
+														<option value='1' {if $status==1}selected{/if}>Active</option>
+														<option value='2' {if $status==2}selected{/if}>Inactive</option>
+														<option value='3' {if $status==3}selected{/if}>Gagal</option>
+													</select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <button><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div><!-- col-md-4 KANAN -->
+                                </div>
+                            </form>
+						
+							{if $datamember}
+							{section name=i loop=$datamember}
+                            <div class="well row">
+                                <div class="col-md-8">
+                                    <p>ID Member: <span class="color-red">{$datamember[i].ssgte_id}</span></p>
+                                    <p>Status: <span class="color-red">{if $datamember[i].n_status==1}Active{elseif $datamember[i].n_status==0}Inactive{else}Gagal{/if}</span></p>
+                                    <p>Point: <span class="color-red">{$datamember[i].point}</span></p>
+                                    <div class="collapse" id="memberDetail-01">
+                                        <p class="color-red">{$datamember[i].username}</p>
+                                        <div class="member-socmed">
+                                            <i class="fa fa-facebook-square"></i>
+                                            <p>{$datamember[i].fb_id}</p>
+                                        </div>
+                                        <div class="member-socmed">
+                                            <i class="fa fa-twitter-square"></i>
+                                            <p>{$datamember[i].twiiter_id}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="member-v-block">
+                                        <div class="member-v-centered">
+                                            <h2><a data-toggle="collapse" href="#memberDetail-01"><img alt="" src="{$basedomain}assets/images/design/custom-icons/ico-member-detail.png"></a></h2>
+                                            <p class="small">DETAIL</p>
+                                        </div>
+                                    </div>
+                                    <div class="member-v-block">
+                                        <div class="member-v-centered">											
+                                            <a id="detail" href="{$basedomain}chapter/memberlist/{$datamember[i].id}" onclick="return confirm('Anda yakin mau menghapus member anda');"><h2><img alt="" src="{$basedomain}assets/images/design/custom-icons/ico-member-hapus.png"></h2>
+                                            <p class="small">HAPUS MEMBER</p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							{/section}
+							{else}
+							<div class="well row">
+                                <div class="col-md-12">
+                                    <p>Data tidak ditemukan</p>
+								</div>
+							</div>
+							{/if}
+                           
+
+                        </div>
+                    </section>
+                </div><!-- /.centered-red-box -->

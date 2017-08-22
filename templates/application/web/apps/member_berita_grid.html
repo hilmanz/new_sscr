@@ -1,0 +1,130 @@
+
+        <div id="content" role="main">
+            <div class="centered-red-box">
+
+                <section class="section" style="padding-top:50px">
+                    <div class="container">
+                        <header class="section-header no-border">
+                            <figure>
+                                <a href="chapter_home.html"><img src="{$basedomain}assets/images/supersoccer-logo.png" class="sscr-wfm-logo"></a>
+                            </figure>
+                        </header>
+                        <header class="section-header">
+                            <h1 class="headline super hairline">BERITA DAN<br>PENGUMUMAN</h1>
+                        </header>
+
+                        <div class="well">
+                            <div class="row padding-bottom padding-top">
+                                <div class="col-md-10 col-md-offset-1">
+                                <!-- NEWS GRID -->
+                        <ul class="list-unstyled isotope no-transition pagilist">
+							
+							{section name=i loop=$listcontentartikel}							
+                            <li class="col-md-4 post-item filter-images isotope-item">
+                                <div class="grid-post swatch-red-white">
+                                    <article class="post post-showinfo">
+                                        <div class="post-media overlay">
+                                            <a class="feature-image magnific hover-animate" href="{$basedomain}public_assets/news/{$listcontentartikel[i].img}" title="Thats a nice image">
+                                                <img alt="some image" src="{$basedomain}public_assets/news/{$listcontentartikel[i].img}">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>
+                                        </div>
+                                        <div class="post-head small-screen-center">
+                                            <h2 class="post-title">
+                                              <a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+                                                {$listcontentartikel[i].title}
+                                              </a>
+                                            </h2>
+                                            <small class="post-date">
+                                              <a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}"> {$listcontentartikel[i].waktu}</a>
+                                            </small>
+                                        </div>
+                                        <div class="post-body">
+                                            <p>
+                                                {$listcontentartikel[i].contentisi}
+                                            </p>
+                                            <a class="more-link" href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+                                              Read More
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </li>
+							{/section}
+						</ul>                       
+                       
+                                <!-- END NEWS GRID -->
+                                </div>
+								
+
+                                <!-- PAGINATION -->
+                                <div class="text-center post-showinfo">
+                                   
+									<div id="paging_of_event_list" class="paging">
+            
+								</div>
+                                </div>
+                                <!-- END PAGINATION -->                                
+                            </div><!-- /.row -->
+                        </div><!-- /.well -->
+                    </div><!-- /.container -->
+                </section>
+            </div><!-- /.centered-red-box -->
+
+<script type="text/javascript">
+	getpaging(0,{$total},"paging_of_event_list","paging_ajax_event",3);
+</script>
+			
+<script>
+{literal}
+//select bootstarp
+
+function paging_ajax_event(fungsi,start){
+
+
+	$.post(basedomain+"member/pagingberita",{'start':start,ajax:1},function(response){
+
+		if(response){
+			  if(response.status==true){
+				var str="<ul class='list-unstyled isotope no-transition'>";
+				$.each(response.data,function(k,v){
+					//console.log(v.status);
+					str+="<li class='col-md-4 post-item filter-images isotope-item pagilist'>";
+                                str+="<div class='grid-post swatch-red-white'>";
+                                    str+="<article class='post post-showinfo'>";
+                                        str+="<div class='post-media overlay'>";
+                                            str+="<a class='feature-image magnific hover-animate' href='"+basedomain+"assets/images/news/news_00.jpg' title='Thats a nice image'>";
+                                                str+="<img alt='some image' src='"+basedomain+"public_assets/news/"+v.img+"'>";
+                                                str+="<i class='fa fa-search-plus'></i>";
+                                            str+="</a>";
+                                        str+="</div>";
+                                        str+="<div class='post-head small-screen-center'>";
+                                            str+="<h2 class='post-title'>";
+                                              str+="<a href='"+basedomain+"member/detailberita/"+v.id+"'>"+v.title+"</a>";                                                                                              
+                                            str+="</h2>";
+                                            str+="<small class='post-date'>";
+                                              str+="<a href='"+basedomain+"member/detailberita/"+v.id+"'> "+v.waktu+"</a>";
+                                            str+="</small>";
+                                        str+="</div>";
+                                        str+="<div class='post-body'>";
+                                            str+="<p>"+v.contentisi+"</p>";
+                                            str+="<a class='more-link' href='"+basedomain+"member/detailberita/"+v.id+"'>";
+                                              str+="Read More";
+                                            str+="</a>";
+                                        str+="</div>";
+                                    str+="</article>";
+                                str+="</div>";
+                            str+="</li>";
+
+				});
+				 str+="</ul>";
+				console.error;
+				$('.pagilist').html(str);
+	
+			}
+		}
+	},"JSON");
+}
+{/literal}
+</script>
+          

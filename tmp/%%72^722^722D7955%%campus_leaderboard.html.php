@@ -1,0 +1,179 @@
+<?php /* Smarty version 2.6.13, created on 2016-09-07 16:58:14
+         compiled from application/web/apps/campus_leaderboard.html */ ?>
+
+        <header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+            <div class="container">
+                <div class="menu-visible text-right">
+                    <a href="campus_profile.html">
+                        <img src="<?php echo $this->_tpl_vars['basedomain']; ?>
+assets/images/design/custom-icons/ico-user-top.png">
+                    </a>
+                    <div class="member-name-top"><a href="campus_profileedit.html">ROBERT</a></div>
+                    <div class="member-point-top">130</div> 
+                    <a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="text-right"></div>
+            </div>
+        </header>
+            <div id="content" role="main">
+                <div class="centered-red-box">
+                    <section class="section">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <!-- <figure>
+                                    <img src="<?php echo $this->_tpl_vars['basedomain']; ?>
+assets/images/supersoccer-logo.png">
+                                </figure> -->
+                            </header>
+                            <header class="section-header text-center">
+                                <h1 class="headline super hairline">LEADERBOARD</h1>
+                            </header>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="well">
+                                        <ul class="nav nav-tabs" id="myTabOne">
+                                            <li class="active">
+                                                <a data-toggle="tab" href="#chapterTab">Chapter</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tab" href="#memberTab">Member</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContentOne">
+                                            <div class="tab-pane fade in active" id="chapterTab">
+                                                <table class="table">
+                                                  <tr>
+                                                    <td>1</td>
+                                                    <td>MUHAMMAD CHEPI SETIAWAN</td>
+                                                    <td>Chelsea Kemang Jakarta</td>
+                                                    <td>42.131</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>2</td>
+                                                    <td>ANDDY NURZAMAN</td>
+                                                    <td>MU Manggarai Jakarta</td>
+                                                    <td>40.913</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>3</td>
+                                                    <td>BAYU NUR RAMADHAN</td>
+                                                    <td>Liverpool Gresik</td>
+                                                    <td>35.329</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>4</td>
+                                                    <td>MUHAMMAD IHSANUDIN</td>
+                                                    <td>Liverpool Surabaya</td>
+                                                    <td>33.157</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>5</td>
+                                                    <td>MOHAMMAD NADZIRIN VY_58</td>
+                                                    <td>MU Kediri</td>
+                                                    <td>29.466</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>6</td>
+                                                    <td>TRIE YUNITA</td>
+                                                    <td>Chelsea Tangerang</td>
+                                                    <td>29.432</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>7</td>
+                                                    <td>BAYU NUR RAMADHAN</td>
+                                                    <td>Arsenal Dago Bandung</td>
+                                                    <td>28.567</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>8</td>
+                                                    <td>MUHAMMAD IHSANUDIN</td>
+                                                    <td>Chelsea Batu Malang</td>
+                                                    <td>27.778</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>9</td>
+                                                    <td>MOHAMMAD NADZIRIN VY_58</td>
+                                                    <td>MU Kudus</td>
+                                                    <td>26.765</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>10</td>
+                                                    <td>TRIE YUNITA</td>
+                                                    <td>Chelsea Bekasi</td>
+                                                    <td>25.546</td>
+                                                  </tr>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane fade" id="memberTab">
+                                                <table class="table table-striped">
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>BAYU NUR RAMADHAN</td>
+                                                        <td>Arsenal Dago Bandung</td>
+                                                        <td>28.567</td>
+                                                    </tr>
+                                                  <tr>
+                                                    <td>2</td>
+                                                    <td>MUHAMMAD IHSANUDIN</td>
+                                                    <td>Chelsea Batu Malang</td>
+                                                    <td>27.778</td>
+                                                  </tr>
+                                                    <tr>
+                                                    <td>3</td>
+                                                    <td>ANDDY NURZAMAN</td>
+                                                    <td>MU Manggarai Jakarta</td>
+                                                    <td>40.913</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>4</td>
+                                                    <td>BAYU NUR RAMADHAN</td>
+                                                    <td>Liverpool Gresik</td>
+                                                    <td>35.329</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>5</td>
+                                                    <td>MUHAMMAD IHSANUDIN</td>
+                                                    <td>Liverpool Surabaya</td>
+                                                    <td>33.157</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>6</td>
+                                                    <td>MOHAMMAD NADZIRIN VY_58</td>
+                                                    <td>MU Kudus</td>
+                                                    <td>26.765</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>7</td>
+                                                    <td>TRIE YUNITA</td>
+                                                    <td>Chelsea Bekasi</td>
+                                                    <td>25.546</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>8</td>
+                                                    <td>MUHAMMAD CHEPI SETIAWAN</td>
+                                                    <td>Chelsea Kemang Jakarta</td>
+                                                    <td>42.131</td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td>9</td>
+                                                    <td>MOHAMMAD NADZIRIN VY_58</td>
+                                                    <td>MU Kediri</td>
+                                                    <td>29.466</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>10</td>
+                                                    <td>TRIE YUNITA</td>
+                                                    <td>Chelsea Tangerang</td>
+                                                    <td>29.432</td>
+                                                  </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.container -->
+                    </section>
+
+                </div><!-- /.centered-red-box -->

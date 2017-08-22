@@ -1,0 +1,181 @@
+<div class="page_section" id="project-page">
+    <div id="container">
+        <div class="titlebox">
+            <h2 class="fl"><span class="icon-books">&nbsp;</span>Add Chapter</h2>
+            {*}<h2 class="fr"><a href="{$basedomain}adminmanagement" class="button2">Back</a></h2>{/*}
+        </div><!-- end .titlebox -->
+        <div class="content">
+
+            <form id="forms" class="forms" method="post" action="">
+		
+            <div id="new-project" class="boxcontent">
+                <section class="step1">	
+                    <div class="row">
+                        <label for="name">Nama Chapter<br></label>
+                        <input id="name" name="name_chapter"  type="text" class="required name" value="{$name_chapter}"><br>
+						<label class="msg_name name_no"  style="color: red;">{$name_chapter_no}</label>
+                    </div><!-- end .row -->
+					
+                    <div class="row">
+                        <label for="name">Alamat Chapter<br></label>
+                        <textarea id="alamat" name="alamat">{$listnya[i].alamat}</textarea><br>
+						<label class="msg_name name_no"  style="color: red;"></label>
+                    </div><!-- end .row -->
+					<div class="row">
+                        <label for="email">Email Chapter<br></label>
+                        <input id="email" name="email" type="text" class="required email" value="{$email}"><br>
+						<label class="msg_name email_no" style="color: red;">{$email_no}</label>
+                    </div><!-- end .row -->
+					
+					<div class="row">
+                        <label for="ktp_sim">ID KTP / SIM<br></label>
+                        <input id="ktp_sim" name="ktp_sim" value="{$listnya[i].ktp_sim}" type="text" class="required ktp_sim" ><br>
+						<label class="msg_name ktp_sim_no" style="color: red;"></label>
+                    </div><!-- end .row -->
+					
+					<div class="row">
+                        <label for="password">Password<br></label>
+                        <input id="password" name="password" value="admin" type="text" class="required password"  placeholder="admin" readonly><br>
+						<label class="msg_name password_no" style="color: red;">{$password_no}</label>
+                    </div><!-- end .row -->
+					
+					<div class="row">
+                        <label for="klubfav">Klub Favorit <br></label>
+                        <select name="club_fav" class="klubfav">
+							<option value="">Select Club</option>
+							{section name=i loop=$listclub}
+							<option value="{$listclub[i].id}">{$listclub[i].name_club}</option>
+							{/section}
+						</select><br>
+						<label class="msg_name username_no" style="color: red;">{$username_no}</label>
+                    </div><!-- end .row -->
+                    <div class="row">
+                        <label for="klubfav">Kota Chapter<br></label>
+                        <select name="kota_chapter" class="kotachap">
+							<option value="" ]>Select city</option>
+							{section name=i loop=$listcity}
+								<option value="{$listcity[i].id}">{$listcity[i].city}</option>
+							{/section}
+						</select><br>
+						<label class="msg_name username_no" style="color: red;">{$username_no}</label>
+                    </div><!-- end .row -->
+                    <div class="row">
+                        <label for="facebookak">Akun Facebook<br></label>
+                        <input id="akunface" name="facebook" value="{$listnya[i].facebook}"  type="text" class=" " ><br>
+						<label class="msg_name " style="color: red;"></label>
+                    </div><!-- end .row -->
+                    <div class="row">
+                        <label for="twitter">Akun Twitter<br></label>
+                        <input id="twitter" name="twitter" value="{$listnya[i].twitter}"  type="text" class=" " ><br>
+						<label class="msg_name " style="color: red;"></label>
+                    </div><!-- end .row -->
+                     <div class="row">
+                        <label for="headchapter">Nama Head Chapter<br></label>
+                        <input id="headchapter" name="headchapter" value="{$listnya[i].name}"  type="text" class=" " ><br>
+						<label class="msg_name " style="color: red;"></label>
+                    </div><!-- end .row -->
+		    <!--
+                     <div class="row">
+                        <label for="headchapter">Email Head Chapter<br></label>
+                        <input id="headchapter" name="email_headchapter" value="{$listnya[i].email}"  type="text" class=" " ><br>
+						<label class="msg_name " style="color: red;"></label>
+                    </div>
+		    -->
+		    <!-- end .row -->
+                    <div class="row">
+                        <label for="headchapter">No Telp/HP<br></label>
+                        <input id="headchapter" name="telp" value="{$listnya[i].no_tlp}"  type="text" class=" " ><br>
+						<label class="msg_name " style="color: red;"></label>
+                    </div><!-- end .row -->
+                    
+                     
+                    <div class="row">
+						<input type='hidden' name='submit' value='1'>
+						<input type='hidden' name='chapter_id' value='{$listnya[i].id}'>
+                        <input type="submit" value="Save" class="fr button3 submitsave"  />&nbsp;
+						 <a href="{$basedomain}chaptermanagement" class="button4 fr">Cancel</a>
+                        <small class="msg">{$status.msgee}</small>
+                        <small class="msg">{$status.msg}</small>
+                    </div><!-- end .row -->
+                </section>
+            </div><!-- end #wizard -->
+		
+            </form>
+        </div><!-- end .content -->
+    </div><!-- end #container -->
+</div><!-- end #home -->
+<script>
+{literal}
+	$('.typeuser').click(function()
+	{
+			
+			console.log($(this).val());
+			if($(this).val()==9)
+			{
+				$(".checkboxmenu").prop("checked", true);
+				$(".checkboxmenu").attr("disabled", true);				
+			}
+			else {
+				$(".checkboxmenu").prop("checked", false);
+				$(".checkboxmenu").removeAttr("disabled"); 	
+				}
+	});
+	$('.submitsave').click(function()
+		{
+			console.log('asa');return false;
+			var name_no='.name_no';
+			$(name_no).html(' ');
+			var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+			var email_no=".email_no";
+			$(email_no).html(' ');
+			var username_no='.username_no';
+			$(username_no).html(' ');
+			var password='.password_no';
+			$(password_no).html(' ');
+			var checkboxmenu='.checkboxmenu_no';
+			$(checkboxmenu_no).html(' ');
+			var valid='';
+			if($('.checkboxmenu:checked').length ==0)
+				{
+				
+					$(subcategory_no).html('You cannot leave this field empty');
+					valid='ada';
+				}
+			if($('.name').val()=='')
+			{
+				$(name_no).html('You cannot leave this field empty');
+				valid='ada';
+			}
+			if($('.username').val()=='')
+			{
+				$(username_no).html('You cannot leave this field empty');
+				valid='ada';
+			}
+			if($('.password').val()=='')
+			{
+				$(password_no).html('You cannot leave this field empty');
+				valid='ada';
+			}
+			if($('.email').val()=='')
+			{
+				$(email_no).html('You cannot leave this field empty');
+				valid='ada';
+			}
+			else if(!$('.email').val().match(mailformat))  
+			{  
+				$(email_no).html('format email salah');
+				valid='ada';
+			} 
+			if(valid)
+			{
+				return false;
+			
+			}
+			else
+			{
+				$('input[type="submit"]').attr('disabled','disabled');
+			
+			}
+		}
+{/literal}
+</script>

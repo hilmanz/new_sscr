@@ -1,0 +1,159 @@
+  
+  <link rel="stylesheet" href="{$basedomain}assets/css/datepicker/jquery-ui.css">
+  
+  <script src="{$basedomain}assets/js/datepicker/jquery.js"></script>
+  <script src="{$basedomain}assets/js/datepicker/jquery-ui.js"></script>
+  <script>
+  {literal}
+  $( function() {
+    $( "#datetimepicker1" ).datepicker();
+	$( "#datetimepicker2" ).datepicker();
+	$( "#datetimepicker3" ).datepicker();
+	$( "#datetimepicker4" ).datepicker();
+  } );
+  {/literal}
+  </script>
+  
+            <div id="content" role="main">
+                <div class="centered-red-box">
+                    <section class="section">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <figure>
+                                    <img src="{$basedomain}assets/images/supersoccer-logo.png" class="sscr-wfm-logo">
+                                </figure>
+                            </header>
+                            <header class="section-header">
+                                <h1 class="headline super hairline">TAMBAH<br>EVENT</h1>								
+                            </header>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <form id="contactForm" class="contact-form" method="post" action="{$basedomain}chapter/prosesadEvent">
+                                        <div class="form-group form-icon-group">
+                                            <input class="form-control" id="nama-event" name="placename" placeholder="NAMA EVENT *" type="text" required/>
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="form-group form-icon-group">
+                                            <input class="form-control" id="keterangan-event" name="events" placeholder="KETERANGAN EVENT *" type="text" required>
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="form-group form-icon-group">
+                                            <select class="form-control catevent" id="kategori-event" name="catevent" type="text">
+                                                <option>EVENT 01</option>
+                                                <option>EVENT 02</option>
+                                                <option>EVENT 03</option>
+                                                <option>EVENT 04</option>
+                                                <option>EVENT 05</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <h4 class="margin-left padding-bottom padding-top">WAKTU EVENT</h4>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-icon-group">
+                                                    <div class='input-group date' >
+                                                        <input type='text' name="tgl1" class="form-control" id='datetimepicker1' placeholder="{$tgl_temp}" value="{$tgl_temp}"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-icon-group">
+                                                    <div class='input-group date'>
+                                                        <input type='text' name="tgl2" class="form-control"  id='datetimepicker2' placeholder="{$tgl_temp}" value="{$tgl_temp}"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group form-icon-group">
+                                                    <div class='input-group date'>
+                                                        <input type='text' name="jam1" class="form-control"  id='datetimepicker3'  placeholder="01:00:00" value="01:00:00"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-icon-group">
+                                                    <div class='input-group date'>
+                                                        <input type='text' name="jam2" class="form-control"  id='datetimepicker4' placeholder="23:00:00" value="23:00:00"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-icon-group">
+                                            <textarea class="form-control" id="alamat-event" name="alamat" placeholder="ALAMAT" rows="10" required></textarea>
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                        <div class="form-group text-center">
+										<input class="submitevent" type="image" src="{$basedomain}assets/images/btn_tambah-event.png" name="submit" value="tambah"></input>
+                                            <!--<a class="submitevent" href="javascript:void(0)">
+                                              <img src="{$basedomain}assets/images/btn_tambah-event.png">
+                                            </a>-->
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div><!-- /.centered-red-box -->
+
+        <a class="go-top hex-alt" href="javascript:void(0)">
+            <i class="fa fa-angle-up"></i>
+        </a>
+		 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+       <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	    <script src="{$basedomain}assets/js/packages.min.js"></script>
+        <script src="{$basedomain}assets/js/theme.min.js"></script>
+
+        <script type="text/javascript" src="{$basedomain}assets/jquery/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="{$basedomain}assets/js/moment.js"></script>
+        <script type="text/javascript" src="{$basedomain}assets/js/transition.js"></script>
+        <script type="text/javascript" src="{$basedomain}assets/js/collapse.js"></script>
+        <script type="text/javascript" src="{$basedomain}assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{$basedomain}assets/js/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript">
+		{literal}
+		
+			$(document).on('click','.submitevent',function(){
+			
+			alert("cek");
+			});
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker2').datetimepicker({
+                    useCurrent: false //Important! See issue #1075
+                });
+                $("#datetimepicker1").on("dp.change", function (e) {
+                    $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+                });
+                $("#datetimepicker2").on("dp.change", function (e) {
+                    $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+                });
+
+                $('#datetimepicker3').datetimepicker();
+                $('#datetimepicker4').datetimepicker({
+                    useCurrent: false //Important! See issue #1075
+                });
+                $("#datetimepicker3").on("dp.change", function (e) {
+                    $('#datetimepicker4').data("DateTimePicker").minDate(e.date);
+                });
+                $("#datetimepicker4").on("dp.change", function (e) {
+                    $('#datetimepicker3').data("DateTimePicker").maxDate(e.date);
+                });
+            });
+			{/literal}
+        </script>
+

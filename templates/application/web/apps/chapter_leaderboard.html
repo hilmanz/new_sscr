@@ -1,0 +1,65 @@
+
+<div id="content" role="main">
+	<div class="centered-red-box">
+		<section class="section">
+			<div class="container">
+				<header class="section-header no-border">
+					<figure>
+						<img src="{$basedomain}assets/images/supersoccer-logo.png" class="sscr-wfm-logo">
+					</figure>
+				</header>
+				<header class="section-header text-center">
+					<h1 class="headline super hairline">LEADERBOARD</h1>
+				</header>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="well">
+							<ul class="nav nav-tabs" id="myTabOne">
+								<li class="active">
+									<a data-toggle="tab" href="#chapterTab">Chapter</a>
+								</li>
+								<li>
+									<a data-toggle="tab" href="#memberTab">Member</a>
+								</li>
+							</ul>
+							<div class="tab-content" id="myTabContentOne">
+								<div class="tab-pane fade in active" id="chapterTab">
+									<table class="table">
+									{if $leaderChapter}
+										{section name=i loop=$leaderChapter}
+									  <tr>
+										<td>{$leaderChapter[i].no}</td>
+										<td>{$leaderChapter[i].name}</td>
+										<td>{$leaderChapter[i].name_chapter}</td>
+										<td>{$leaderChapter[i].total}</td>
+									  </tr>
+									  {/section}
+									{/if}                                                  
+									</table>
+								</div>
+								<div class="tab-pane fade" id="memberTab">
+									<table class="table table-striped">
+										{if $leaderMember}
+											{section name=j loop=$leaderMember}
+											<tr>
+												<td>{$leaderMember[j].no}</td>
+												<td>{$leaderMember[j].name} </td>
+												<td>{$leaderMember[j].name_chapter}</td>
+												<td>{$leaderMember[j].total} </td>
+											</tr>
+											 {/section}
+										{/if}                                                  
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.container -->
+		</section>
+
+	</div><!-- /.centered-red-box -->
+
+
+        
+    

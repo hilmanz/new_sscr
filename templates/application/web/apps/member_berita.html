@@ -1,0 +1,293 @@
+		 <header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+            <div class="container">
+                <div class="menu-visible text-right">
+                    {if $userdata.img_avatar}
+						<img src="{$basedomain}public_assets/profile/{$userdata.img_avatar}" width="35px">
+					{else}
+						<img src="{$basedomain}assets/images/design/custom-icons/ico-user-top.png">
+					{/if}
+					<div class="member-name-top"><a href="member_profileedit.html">{$userdata.name}</a></div>
+                    <div class="member-point-top">{$userdata.point}</div> 
+					<div>|</div>
+					<div class="member-point-top"><a href="logout.php">LOG OUT</a></div>
+                    <a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="text-right"></div>
+            </div>
+        </header>
+            <div id="content" role="main">
+                <div class="centered-red-box">
+
+                    <section class="section" style="padding-top:50px">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <figure>
+                                    <img src="{$basedomain}assets/images/supersoccer-logo.png">
+                                </figure>
+                            </header>
+                            <header class="section-header">
+                                <h1 class="headline super hairline">BERITA DAN<br>PENGUMUMAN</h1>
+                            </header>
+
+                            <div class="well">
+                                <div class="row padding-bottom padding-top">
+                                    <div class="col-md-10 col-md-offset-1">
+                                         <article class="post post-showinfo">
+										{section name=i loop=$listcontent}
+                                            <div class="post-media overlay">
+                                                <a class="feature-image magnific hover-animate" href="{$basedomain}public_assets/news/{$listcontent[i].img}" title="Thats a nice image">
+                                                    <img alt="some image" src="{$basedomain}public_assets/news/{$listcontent[i].img}">
+                                                    <i class="fa fa-search-plus"></i>
+                                                </a>
+                                            </div>
+                                            <div class="post-head small-screen-center">
+                                                <h2 class="post-title">
+                                                  <a href="#">
+												  
+                                                     {$listcontent[i].title}
+												  
+                                                  </a>
+                                                </h2>
+                                                <!--<small class="post-author">
+                                                  <a href="#">Manos Proistak,</a>
+                                                </small>-->
+                                                <small class="post-date">
+                                                  <a href="#">{$listcontent[i].date}</a>
+                                                </small>
+                                            </div>
+                                            <div class="post-body">
+                                                {$listcontent[i].content}
+                                            </div>
+											 {/section} 
+                                        </article>
+                                    </div>
+                                </div>
+
+                                <h3 class="padding-top">BERITA DAN PENGUMUMAN LAINNYA</h3>
+
+                                <div class="carousel slide" id="news2">
+                                    <ol class="carousel-indicators">										
+                                        <li data-slide-to="0" data-target="#news2" class="active"></li>
+										
+										{if $listcontentall.page > 1}
+											{$listcontentall.page_inactive}										
+										{/if}
+										
+                                    </ol>
+                                    <div class="carousel-inner">
+									
+                                        <div class="item active">
+                                            <div class="row">
+												{section name=i loop=$listcontentartikel}
+												{if $listcontentartikel[i].no < 5 }
+													<div class="col-md-3">
+														<div class="grid-post swatch-black-white">
+															<article class="post post-showinfo">
+																<div class="post-media">
+																	<a class="feature-image magnific hover-animate" href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}" title="Thats a nice image">
+																		<img alt="some image" src="{$basedomain}public_assets/news/{$listcontentartikel[i].img}">
+																		<i class="fa fa-search-plus"></i>
+																	</a>
+																</div>
+																<div class="post-head text-center">
+																	<h3 class="post-title">
+																		<a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+																			 {$listcontentartikel[i].title}
+																		</a>
+																	</h3>
+																</div>
+																<div class="post-extras">
+																	<span class="post-date">
+																		 {$listcontentartikel[i].waktu}
+																	</span>
+																</div>
+															</article>
+														</div>
+													</div>
+												{/if}
+											{/section}                                                
+                                            </div>
+                                        </div>
+										
+										
+										<div class="item">
+                                            <div class="row">
+											{section name=i loop=$listcontentartikel}
+												{if $listcontentartikel[i].no < 9 && $listcontentartikel[i].no > 4}											
+													<div class="col-md-3">
+														<div class="grid-post swatch-black-white">
+															<article class="post post-showinfo">
+																<div class="post-media">
+																	<a class="feature-image magnific hover-animate" href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}" title="Thats a nice image">
+																		<img alt="some image" src="{$basedomain}public_assets/news/{$listcontentartikel[i].img}">
+																		<i class="fa fa-search-plus"></i>
+																	</a>
+																</div>
+																<div class="post-head text-center">
+																	<h3 class="post-title">
+																		<a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+																			 {$listcontentartikel[i].title}
+																		</a>
+																	</h3>
+																</div>
+																<div class="post-extras">
+																	<span class="post-date">
+																		 {$listcontentartikel[i].waktu}
+																	</span>
+																</div>
+															</article>
+														</div>
+													</div> 
+												{/if}
+											{/section}
+                                            </div>
+                                        </div>
+										
+										{if $listcontentall.page > 2}																			
+										<div class="item">
+                                            <div class="row">
+											{section name=i loop=$listcontentartikel}
+												{if $listcontentartikel[i].no < 13 && $listcontentartikel[i].no > 8}											
+													<div class="col-md-3">
+														<div class="grid-post swatch-black-white">
+															<article class="post post-showinfo">
+																<div class="post-media">
+																	<a class="feature-image magnific hover-animate" href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}" title="Thats a nice image">
+																		<img alt="some image" src="{$basedomain}public_assets/news/{$listcontentartikel[i].img}">
+																		<i class="fa fa-search-plus"></i>
+																	</a>
+																</div>
+																<div class="post-head text-center">
+																	<h3 class="post-title">
+																		<a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+																			 {$listcontentartikel[i].title}
+																		</a>
+																	</h3>
+																</div>
+																<div class="post-extras">
+																	<span class="post-date">
+																		 {$listcontentartikel[i].waktu}
+																	</span>
+																</div>
+															</article>
+														</div>
+													</div> 
+												{/if}
+											{/section}
+                                            </div>
+                                        </div>
+										{/if}
+										
+										{if $listcontentall.page > 3}											
+										<div class="item">
+                                            <div class="row">
+											{section name=i loop=$listcontentartikel}
+												{if $listcontentartikel[i].no < 17 && $listcontentartikel[i].no > 12}											
+													<div class="col-md-3">
+														<div class="grid-post swatch-black-white">
+															<article class="post post-showinfo">
+																<div class="post-media">
+																	<a class="feature-image magnific hover-animate" href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}" title="Thats a nice image">
+																		<img alt="some image" src="{$basedomain}public_assets/news/{$listcontentartikel[i].img}">
+																		<i class="fa fa-search-plus"></i>
+																	</a>
+																</div>
+																<div class="post-head text-center">
+																	<h3 class="post-title">
+																		<a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+																			 {$listcontentartikel[i].title}
+																		</a>
+																	</h3>
+																</div>
+																<div class="post-extras">
+																	<span class="post-date">
+																		 {$listcontentartikel[i].waktu}
+																	</span>
+																</div>
+															</article>
+														</div>
+													</div> 
+												{/if}
+											{/section}
+                                            </div>
+                                        </div>
+										{/if}
+										{if $listcontentall.page > 4}											
+										<div class="item">
+                                            <div class="row">
+											{section name=i loop=$listcontentartikel}
+												{if $listcontentartikel[i].no < 21 && $listcontentartikel[i].no > 12}											
+													<div class="col-md-3">
+														<div class="grid-post swatch-black-white">
+															<article class="post post-showinfo">
+																<div class="post-media">
+																	<a class="feature-image magnific hover-animate" href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}" title="Thats a nice image">
+																		<img alt="some image" src="{$basedomain}public_assets/news/{$listcontentartikel[i].img}">
+																		<i class="fa fa-search-plus"></i>
+																	</a>
+																</div>
+																<div class="post-head text-center">
+																	<h3 class="post-title">
+																		<a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+																			 {$listcontentartikel[i].title}
+																		</a>
+																	</h3>
+																</div>
+																<div class="post-extras">
+																	<span class="post-date">
+																		 {$listcontentartikel[i].waktu}
+																	</span>
+																</div>
+															</article>
+														</div>
+													</div> 
+												{/if}
+											{/section}
+                                            </div>
+                                        </div>
+										{/if}
+										{if $listcontentall.page > 5}
+										<div class="item">
+                                            <div class="row">
+											{section name=i loop=$listcontentartikel}
+												{if $listcontentartikel[i].no < 21 && $listcontentartikel[i].no > 16}											
+													<div class="col-md-3">
+														<div class="grid-post swatch-black-white">
+															<article class="post post-showinfo">
+																<div class="post-media">
+																	<a class="feature-image magnific hover-animate" href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}" title="Thats a nice image">
+																		<img alt="some image" src="{$basedomain}public_assets/news/{$listcontentartikel[i].img}">
+																		<i class="fa fa-search-plus"></i>
+																	</a>
+																</div>
+																<div class="post-head text-center">
+																	<h3 class="post-title">
+																		<a href="{$basedomain}member/detailberita/{$listcontentartikel[i].id}">
+																			 {$listcontentartikel[i].title}
+																		</a>
+																	</h3>
+																</div>
+																<div class="post-extras">
+																	<span class="post-date">
+																		 {$listcontentartikel[i].waktu}
+																	</span>
+																</div>
+															</article>
+														</div>
+													</div> 
+												{/if}
+											{/section}
+                                            </div>
+                                        </div>
+										{/if}
+									</div>	
+                                   
+                                </div>
+                                </div>
+                            </div><!-- /.well -->
+                        </div>
+                    </section>
+                </div><!-- /.centered-red-box -->
+
+
+               

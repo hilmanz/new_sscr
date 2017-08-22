@@ -1,0 +1,188 @@
+<form id="myformtrivia" method="POST" action="{$basedomain}member/savetrivia">
+<div id="trivia-1" class="section item">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 center">
+				  <div class="title-box"><h3>TRIVIA</h3></div>
+	
+				    <div class="theForm">
+					<p>#1. Apa yang terlintas dibenakmu tentang Goodyear?</p>
+					<p><input type="radio" name="jawaban1" value="inovasi"> INOVASI</p>
+					<p><input type="radio" name="jawaban1" value="keamanan"> KEAMANAN</p>
+					<p><input type="radio" name="jawaban1" value="kualitas"> KUALITAS</p>
+					<p><input type="radio" name="jawaban1" value="harga"> HARGA</p>
+				  </div>
+				  <label class="jawaban1_error error_red color-red"></label>
+			</div><!-- end .col-md-12 -->
+		</div><!-- end .row -->
+	</div><!-- end .container -->
+</div><!-- end #trivia-1 -->
+<div id="trivia-2" class="section item">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 center">				
+
+				  <div class="theForm">
+					<p>#2. Apa yang terlintas dibenakmu tentang Goodyear?</p>
+					<p><input type="radio" name="jawaban2" value="inovasi"> INOVASI</p>
+					<p><input type="radio" name="jawaban2" value="keamanan"> KEAMANAN</p>
+					<p><input type="radio" name="jawaban2" value="kualitas"> KUALITAS</p>
+					<p><input type="radio" name="jawaban2" value="harga"> HARGA</p>
+				  </div>
+				  <label class="jawaban2_error error_red color-red"></label>
+			</div><!-- end .col-md-12 -->
+		</div><!-- end .row -->
+	</div><!-- end .container -->
+</div><!-- end #trivia-2 -->
+<div id="trivia-2" class="section item">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 center">				
+
+				  <div class="theForm">
+					<p>#3. Apa yang terlintas dibenakmu tentang Goodyear?</p>
+					<p><input type="radio" name="jawaban3" value="inovasi"> INOVASI</p>
+					<p><input type="radio" name="jawaban3" value="keamanan"> KEAMANAN</p>
+					<p><input type="radio" name="jawaban3" value="kualitas"> KUALITAS</p>
+					<p><input type="radio" name="jawaban3" value="harga"> HARGA</p>
+				  </div>
+				  <label class="jawaban3_error error_red color-red"></label>
+			</div><!-- end .col-md-12 -->
+		</div><!-- end .row -->
+	</div><!-- end .container -->
+</div><!-- end #trivia-2 -->
+<div id="trivia-2" class="section item">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 center">				
+
+				  <div class="theForm">
+					<p>#4. Apa yang terlintas dibenakmu tentang Goodyear?</p>
+					<p><input type="radio" name="jawaban4" value="inovasi"> INOVASI</p>
+					<p><input type="radio" name="jawaban4" value="keamanan"> KEAMANAN</p>
+					<p><input type="radio" name="jawaban4" value="kualitas"> KUALITAS</p>
+					<p><input type="radio" name="jawaban4" value="harga"> HARGA</p>
+				  </div>
+				  <label class="jawaban4_error error_red color-red"></label>
+			</div><!-- end .col-md-12 -->
+		</div><!-- end .row -->
+	</div><!-- end .container -->
+</div><!-- end #trivia-2 -->
+<div id="trivia-2" class="section item">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 center">				
+
+				  <div class="theForm">
+					<p>#5. Apa yang terlintas dibenakmu tentang Goodyear?</p>
+					<p><input type="radio" name="jawaban5" value="inovasi"> INOVASI</p>
+					<p><input type="radio" name="jawaban5" value="keamanan"> KEAMANAN</p>
+					<p><input type="radio" name="jawaban5" value="kualitas"> KUALITAS</p>
+					<p><input type="radio" name="jawaban5" value="harga"> HARGA</p>
+				  </div>
+				  <label class="jawaban5_error error_red color-red"></label>
+			</div><!-- end .col-md-12 -->
+		</div><!-- end .row -->
+	</div><!-- end .container -->
+</div><!-- end #trivia-2 -->
+{if $membertrivia ==0}
+<div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 center">				
+
+				  <div>
+					<input class="idmember" type="hidden" name="idmember" value="{$memberprofile.ids}"></input>
+					<input class="idchapter" type="hidden" name="idchapter" value="{$memberprofile.chapter_id}"></input>
+					<input type="hidden" name="submit" value="1"></input>
+					<input class="choose" type="submit" name="choose" value="submit"></input>
+				  </div>
+			</div><!-- end .col-md-12 -->
+		</div><!-- end .row -->
+	</div><!-- end .container -->
+</div><!-- end #trivia-2 -->
+{/if}
+</form>
+<script>
+{literal}
+
+$(".choose").click(function(){				
+var v1=$('input[name=jawaban1]:checked', '#myformtrivia').val();
+var v2=$('input[name=jawaban2]:checked', '#myformtrivia').val();
+var v3=$('input[name=jawaban3]:checked', '#myformtrivia').val();
+var v4=$('input[name=jawaban4]:checked', '#myformtrivia').val();
+var v5=$('input[name=jawaban5]:checked', '#myformtrivia').val();
+
+
+var valid='';
+$('.jawaban1_error').html('');
+$('.jawaban2_error').html('');
+$('.jawaban3_error').html('');
+$('.jawaban4_error').html('');
+$('.jawaban5_error').html('');
+	
+	
+if(typeof v1=='undefined')
+{
+	$('.jawaban1_error').html('Pilih salah satu jawaban diatas');
+	valid='ada';
+}
+if(typeof v2=='undefined')
+{	
+	valid='ada';
+	$('.jawaban2_error').html('Pilih salah satu jawaban diatas');
+}
+if(typeof v3=='undefined')
+{
+	valid='ada';
+	$('.jawaban3_error').html('Pilih salah satu jawaban diatas');
+}
+if(typeof v4=='undefined')
+{
+	valid='ada';
+	$('.jawaban4_error').html('Pilih salah satu jawaban diatas');
+}
+if(typeof v5=='undefined')
+{
+	valid='ada';
+	$('.jawaban5_error').html('Pilih salah satu jawaban diatas');
+}
+
+
+if(valid)
+{
+	return false;
+}else{
+	$('#myformtrivia').trigger('submit');		
+}
+
+
+/*
+if(valid)
+{
+	return false;
+}else{							
+	var str = $(this).attr( "rel" );
+	var res = str.split(" ");
+	var pertanyaan=res[0];
+	var jawaban=res[1];
+	var idmember=$(".idmember").val();
+	var idchapter=$(".idchapter").val();
+	
+	
+	$.ajax ({ 
+		type	 : 'POST', 
+		url	 :  basedomain+'member/hasiltrivia' , 
+		data:{email:email,pertanyaan:pertanyaan,jawaban:jawaban},
+		dataType:'json',
+		success	: function (result) 
+		{
+		}
+	});			
+	$('.fromevent').trigger('submit');					
+}
+*/
+});
+
+{/literal}
+</script>

@@ -1,0 +1,133 @@
+
+            <div id="content" role="main">
+                <div class="centered-red-box">
+                    <section class="section swatch-white-black" style="padding-top:50px">
+                        <div class="container">
+                            <header class="section-header no-border">
+                                <figure>
+                                    <img src="{$basedomain}assets/images/supersoccer-logo.png">
+                                </figure>
+                            </header>
+
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+									 
+										<div class="profile-col">
+											<h2 class="profile-head">EDIT MEMBER</h2>
+											<div class="profile-body">
+												<div class="profile-big-head padding-top">
+													<center><ul id="files" ><img src="{$basedomain}public_assets/profile/{$editmember.img_avatar}" id="photo"></ul></center>
+												</div>
+												<p class="padding-top" id="validphoto">Maksimal file 2 MB (.jpg, .jpeg, .png)</p>
+												
+												<form id="" class="contact-form padding-top">
+													<div class="form-group text-center">
+														<img src="{$basedomain}assets/images/btn_unggah.png" id="upload">	
+														<span id="status" ></span>
+														
+													</div>
+												</form>
+												<!-- <button class="btn_unggah" type="submit">UNGGAH</button> -->
+											</div>
+										</div>
+										<form id="frmeditmember" class="contact-form padding-top frmeditmember" method="post" action="{$basedomain}member/proseseditmember" enctype="application/x-www-form-urlencoded">
+                                        <div class="form-group form-icon-group">
+                                            <input class="form-control" id="name_member" name="name_member" placeholder="Nama *" type="text" value="{$editmember.name}" required/>
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="form-group form-icon-group">
+                                            <input class="form-control" id="username" name="username" placeholder="Email *" type="email" value="{$editmember.username}" required>
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="form-group form-icon-group">
+                                            <input class="form-control" id="ktp_sim" name="ktp_sim" placeholder="No KTP *" type="number" value="{$editmember.ktp_sim}" required>
+                                            <i class="fa fa-credit-card"></i>
+                                        </div>
+                                        <div class="form-group form-icon-group">
+                                            <input class="form-control" id="no_telp" name="no_telp" placeholder="No HP *" type="number" value="{$editmember.no_tlp}" required>
+                                            <i class="fa fa-mobile-phone"></i>
+                                        </div>
+
+                                        <div class="form-group form-icon-group">
+                                            <textarea rows="5" class="form-control" id="alamat" name="alamat" placeholder="Alamat" type="text" required>{$editmember.alamat}</textarea>
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+
+                                        <div class="form-group form-icon-group">
+											<span class="infoUrl">https://www.facebook.com/</span>
+                                            <input class="form-control" id="fbanggota" name="fbanggota" placeholder="www.facebook.com/" type="text" value="{$editmember.fb_id}" required style="padding-left:200px">
+                                            <i class="fa fa-facebook"></i>
+                                        </div>
+                                        <div class="form-group form-icon-group">
+										<span class="infoUrl">https://www.twitter.com/</span>
+                                            <input class="form-control" id="twitteranggota" name="twitteranggota" placeholder="www.twitter.com/" type="text" value="{$editmember.twiiter_id}" required style="padding-left:187px">
+                                            <i class="fa fa-twitter"></i>
+                                        </div>
+
+                                        <div class="form-group text-center">
+											<input type="hidden" name="img_avatar" id="name_img"></input>
+											<input type="hidden" name="submit" value="1"></input>
+											<input class="btn btn-primary btn-icon btn-icon-right submitevent" type="submit" value="simpan">
+                                                <!--
+												SIMPAN
+                                                <div class="hex-alt">
+                                                    <i class="fa fa-save"></i>
+                                                </div>
+												-->
+                                            </input>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div><!-- /.centered-red-box -->
+<script src="{$basedomain}assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+		{literal}
+		
+			$(document).on('click','.submitevent',function(){
+				
+			$('#frmeditmember').trigger('submit');
+			});
+		
+
+	$(function(){
+		var btnUpload=$('#upload');
+		var status=$('#status');
+		new AjaxUpload(btnUpload, {
+			action: basedomain+'upload-file.php',
+			name: 'uploadfile',
+			onSubmit: function(file, ext){
+				
+				 if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
+                    // extension is not allowed 
+					status.text('Only JPG, PNG or GIF files are allowed');
+					return false;
+				}			
+				status.text('Uploading...');
+			},
+			onComplete: function(file, response){
+				//On completion clear the status
+				status.text('');
+				//Add uploaded file to list
+				if(response==="success"){					
+					$('#files').html('');
+					$('#photo').hide();
+					$('#validphoto').hide();
+					$('#name_img').val(file);
+					$('<li></li>').appendTo('#files').html('<img src="'+basedomain+'/public_assets/profile/'+file+'" alt="" /><br />').addClass('success');
+				} else{		
+					$('#photo').show();
+					$('<li></li>').appendTo('#files').text(file).addClass('error');
+				}
+			}
+		});
+		
+	});
+	{/literal}
+</script>
+
+
+
+               

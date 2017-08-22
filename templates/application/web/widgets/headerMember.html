@@ -1,0 +1,39 @@
+<div class="slideout-menu">
+        	<h3><a href="#" class="slideout-menu-toggle">&times;</a></h3>
+        	<ul>
+        		<li><a href="{$basedomain}member/about">About</a></li>
+        		<li><a href="{$basedomain}member/event">Event</a></li>
+        		<li><a href="#">Trivia Quiz</a></li>
+        		<li><a href="{$basedomain}puzzle">Puzzle</a></li>
+				<li><a href="{$basedomain}tebakskor">Tebak skor</a></li>
+                <li><a href="{$basedomain}member/leaderboard">Leaderboard</a></li>
+        		<li><a href="{$basedomain}member/berita">Berita &amp; Pengumuman</a></li>
+                <li><a href="#">Hadiah</a></li>
+                <li><a href="{$basedomain}member/profile">Profile</a></li>
+        	</ul>
+        </div>
+<!--/.slideout-menu-->
+        <header id="masthead" class="header navbar navbar-sticky swatch-black-white navbar-stuck">
+            <div class="container">
+                <div class="menu-visible text-right">
+					{if $userdata.img_avatar}
+                        <div class="box-round box-small">
+                            <div class="box-dummy"></div>
+                            <span class="box-inner">
+                                <img alt="" class="img-circle" src="{$basedomain}public_assets/profile/{$userdata.img_avatar}">
+                            </span>
+                        </div>
+                    
+						<!-- <img src="{$basedomain}public_assets/profile/{$userdata.img_avatar}" width="35px"> -->
+					{else}
+						<img src="{$basedomain}public_assets/profile/ico-user-top.png" width="35px">
+					{/if}
+                    <div class="member-name-top"><a href="member_profileedit.html">{$userdata.name}</a></div>
+                    <div class="member-point-top">{$userdata.point}</div> 
+					<div>|</div>
+                    <div class="member-point-top"><a href="{$basedomain}logout.php">LOG OUT</a></div> 
+                    <a href="#" class="slideout-menu-toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="text-right"></div>
+            </div>
+        </header>
